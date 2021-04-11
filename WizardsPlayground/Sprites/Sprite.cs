@@ -17,6 +17,8 @@ namespace WizardsPlayground.Sprites
 
         public Vector2 _position;
         public Vector2 Origin;
+        public Vector2 Direction;
+        public float Rotation;
         public Color Colour = Color.White;
         public float Speed = 0f;
         public float LifeSpan;
@@ -47,7 +49,7 @@ namespace WizardsPlayground.Sprites
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_texture, _position, Color.White);
+            spriteBatch.Draw(_texture, _position, null, Color.White, Rotation - (float)Math.PI/2, Origin, 1.0f, SpriteEffects.None, 0);
         }
     }
 }
