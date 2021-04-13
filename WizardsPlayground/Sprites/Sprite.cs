@@ -9,25 +9,43 @@ using WizardsPlayground.Models;
 
 namespace WizardsPlayground.Sprites
 {
-    class Sprite
+    class Sprite : ICloneable
     {
         protected KeyboardState _currentKey;
         protected KeyboardState _previousKey;
-        protected Texture2D _texture;
+        protected MouseState _previousMouse;
+        protected MouseState _currentMouse;
+        protected List<Texture2D> _texture = new List<Texture2D>();
 
-        public Vector2 _position;
+        public Vector2 position;
         public Vector2 Origin;
         public Vector2 Direction;
         public float Rotation;
-        public Color Colour = Color.White;
+        public float RotationalVelocity = 3f;
+        public float LinearVelocity = 4f;
         public float Speed = 0f;
         public float LifeSpan;
         public bool IsRemoved = false;
+        public int animation = 0;
+
+        public Sprite Parent;
 
 
         public Sprite(Texture2D texture)
         {
+            _texture.Add(texture);
+        }
+
+        public Sprite(List<Texture2D> texture)
+        {
             _texture = texture;
+        }
+
+        public Sprite(Texture2D texture, Texture2D texture2D)
+        {
+
+            _texture.Add(texture);
+            _texture.Add(texture2D);
         }
 
         public Rectangle Rectangle
@@ -36,11 +54,13 @@ namespace WizardsPlayground.Sprites
             {
                 if (_texture != null)
                 {
-                    return new Rectangle((int)_position.X - (int)Origin.X, (int)_position.Y - (int)Origin.Y, _texture.Width, _texture.Height);
+                    return new Rectangle((int)position.X - (int)Origin.X, (int)position.Y - (int)Origin.Y, _texture[animation].Width, _texture[animation].Height);
                 }
                 throw new Exception("unknown sprite");
             }
         }
+
+        public Texture2D Texture2D { get; }
 
         public virtual void Update(GameTime GameTime, List<Sprite> sprite)
         {
@@ -49,7 +69,12 @@ namespace WizardsPlayground.Sprites
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_texture, _position, null, Color.White, Rotation - (float)Math.PI/2, Origin, 1.0f, SpriteEffects.None, 0);
+            spriteBatch.Draw(_texture[animation], position, null, Color.White, Rotation, Origin, 1.0f, SpriteEffects.None, 0);
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }

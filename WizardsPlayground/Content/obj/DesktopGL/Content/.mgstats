@@ -1,2 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/adamb/source/repos/WizardsPlayground/WizardsPlayground/Content/firebolt_1.png","C:/Users/adamb/source/repos/WizardsPlayground/WizardsPlayground/Content/bin/DesktopGL/Content/firebolt_1.xnb","TextureProcessor","Texture2DContent",936,5045,0.1558908
+"C:/Users/adamb/source/repos/WizardsPlayground/WizardsPlayground/Content/firebolt_2.png","C:/Users/adamb/source/repos/WizardsPlayground/WizardsPlayground/Content/bin/DesktopGL/Content/firebolt_2.xnb","TextureProcessor","Texture2DContent",916,5045,0.0027922
 "C:/Users/adamb/source/repos/WizardsPlayground/WizardsPlayground/Content/GreenWizard.png","C:/Users/adamb/source/repos/WizardsPlayground/WizardsPlayground/Content/bin/DesktopGL/Content/GreenWizard.xnb","TextureProcessor","Texture2DContent",1352,15205,0.1296136

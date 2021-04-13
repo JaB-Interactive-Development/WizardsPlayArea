@@ -4,9 +4,13 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/adamb/source/repos/WizardsPlayground/WizardsPlayground/Content/firebolt_1.png</File>
+    <File>C:/Users/adamb/source/repos/WizardsPlayground/WizardsPlayground/Content/firebolt_2.png</File>
     <File>C:/Users/adamb/source/repos/WizardsPlayground/WizardsPlayground/Content/GreenWizard.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

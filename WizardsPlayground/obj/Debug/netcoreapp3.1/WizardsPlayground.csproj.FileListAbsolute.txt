@@ -22,3 +22,5 @@ C:\Users\adamb\source\repos\WizardsPlayground\WizardsPlayground\obj\Debug\netcor
 C:\Users\adamb\source\repos\WizardsPlayground\WizardsPlayground\obj\Debug\netcoreapp3.1\WizardsPlayground.pdb
 C:\Users\adamb\source\repos\WizardsPlayground\WizardsPlayground\obj\Debug\netcoreapp3.1\WizardsPlayground.genruntimeconfig.cache
 C:\Users\adamb\source\repos\WizardsPlayground\WizardsPlayground\bin\Debug\netcoreapp3.1\Content\GreenWizard.xnb
+C:\Users\adamb\source\repos\WizardsPlayground\WizardsPlayground\bin\Debug\netcoreapp3.1\Content\firebolt_1.xnb
+C:\Users\adamb\source\repos\WizardsPlayground\WizardsPlayground\bin\Debug\netcoreapp3.1\Content\firebolt_2.xnb

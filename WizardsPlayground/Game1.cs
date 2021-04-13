@@ -15,8 +15,8 @@ namespace WizardsPlayground
 
         public Texture2D Texture;
         public Vector2 Position;
-        public static int ScreenX;
-        public static int ScreenY;
+        public static int ScreenWidth;
+        public static int ScreenHeight;
 
         public Game1()
         {
@@ -39,16 +39,17 @@ namespace WizardsPlayground
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            ScreenY = GraphicsDevice.Viewport.Height;
-            ScreenX = GraphicsDevice.Viewport.Width;
+            ScreenHeight = GraphicsDevice.Viewport.Height;
+            ScreenHeight = GraphicsDevice.Viewport.Width;
 
             var gWizard = Content.Load<Texture2D>("GreenWizard");
             _sprites = new List<Sprite>()
             {
                 new Player(gWizard)
                 {
-                    _position = new Vector2(100,100),
-                    Origin = new Vector2(gWizard.Width/2,gWizard.Height/2)
+                    position = new Vector2(100,100),
+                    Origin = new Vector2(gWizard.Width/2,gWizard.Height/2),
+                    firebolt = new firebolt(Content.Load<Texture2D>( "firebolt_1"),Content.Load<Texture2D>("firebolt_2")),
                 }
             };
             // TODO: use this.Content to load your game content here
@@ -56,8 +57,17 @@ namespace WizardsPlayground
 
         protected override void Update(GameTime gameTime)
         {
-            foreach (var sprite in _sprites)
+            foreach (var sprite in _sprites.ToArray())
                 sprite.Update(gameTime, _sprites);
+
+            for(int i =0; i < _sprites.Count; i++)
+            {
+                if(_sprites[i].IsRemoved)
+                {
+                    _sprites.RemoveAt(i);
+                    i--;
+                }
+            }
 
             base.Update(gameTime);
         }

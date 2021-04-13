@@ -12,23 +12,44 @@ namespace WizardsPlayground.Sprites
     class Player : Sprite
     {
         public bool HasDied = false;
+        public firebolt firebolt;
+
         public Player(Texture2D texture) : base(texture)
         {
-            _position = new Vector2(30, 40);
+            position = new Vector2(30, 40);
             Speed = 3f;
         }
 
-        public override void Update(GameTime GameTime, List<Sprite> sprite)
+        public override void Update(GameTime GameTime, List<Sprite> sprites)
         {
+            _previousMouse = _currentMouse;
+            _currentMouse = Mouse.GetState();
             Move();
             Rotate();
+            Attack(sprites);
+        }
+
+        private void Attack(List<Sprite> sprites)
+        {
+            if(_currentMouse.LeftButton != _previousMouse.LeftButton)
+            {
+                var Firebolt = firebolt.Clone() as firebolt;
+                Firebolt.Direction = Vector2.Normalize(this.Direction);
+                Firebolt.position = this.position;
+                firebolt.Rotation = this.Rotation;
+                Firebolt.LinearVelocity = this.LinearVelocity*2;
+                Firebolt.LifeSpan = 2f;
+                Firebolt.Parent = this;
+
+                sprites.Add(Firebolt);
+                
+            }
         }
 
         private void Rotate()
         {
-            var mouspos = Mouse.GetState();
-            Direction = mouspos.Position.ToVector2() - _position;
-            Rotation = (float)Math.Atan2(Direction.Y, Direction.X);
+            Direction = _currentMouse.Position.ToVector2() - position;
+            Rotation = (float)Math.Atan2(Direction.Y, Direction.X) - ((float)Math.PI / 2);
 
         }
 
@@ -36,31 +57,31 @@ namespace WizardsPlayground.Sprites
         {
             if (Keyboard.GetState().IsKeyDown(Keys.W))
             {
-                if ((_position.Y -= Speed) >= 0)
-                    _position.Y -= Speed;
+                if ((position.Y -= Speed) >= 0)
+                    position.Y -= Speed;
                 else
-                    _position.Y = 0;
+                    position.Y = 0;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.S))
             {
-                if ((_position.Y += Speed) <= Game1.ScreenY - _texture.Height)
-                    _position.Y += Speed;
+                if ((position.Y += Speed) <= Game1.ScreenHeight - _texture[animation].Height)
+                    position.Y += Speed;
                 else
-                    _position.Y = Game1.ScreenY - _texture.Height;
+                    position.Y = Game1.ScreenHeight - _texture[animation].Height;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.A))
             {
-                if ((_position.X -= Speed) >= 0)
-                    _position.X -= Speed;
+                if ((position.X -= Speed) >= 0)
+                    position.X -= Speed;
                 else
-                    _position.X = 0;
+                    position.X = 0;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.D))
             {
-                if ((_position.X += Speed) <= Game1.ScreenX - _texture.Width)
-                    _position.X += Speed;
+                if ((position.X += Speed) <= Game1.ScreenHeight - _texture[animation].Width)
+                    position.X += Speed;
                 else
-                    _position.X = Game1.ScreenX - _texture.Width;
+                    position.X = Game1.ScreenHeight - _texture[animation].Width;
             }
         }
     }
