@@ -36,7 +36,7 @@ namespace WizardsPlayground.Sprites
                 var Firebolt = firebolt.Clone() as firebolt;
                 Firebolt.Direction = Vector2.Normalize(this.Direction);
                 Firebolt.position = this.position;
-                firebolt.Rotation = this.Rotation;
+                Firebolt.Rotation = this.Rotation;
                 Firebolt.LinearVelocity = this.LinearVelocity*2;
                 Firebolt.LifeSpan = 2f;
                 Firebolt.Parent = this;

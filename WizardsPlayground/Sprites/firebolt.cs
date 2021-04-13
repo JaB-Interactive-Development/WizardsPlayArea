@@ -37,8 +37,6 @@ namespace WizardsPlayground.Sprites
                 {
                     animation = 0;
                 }
-                 
-                
             }
             position += Direction * LinearVelocity;
         }
