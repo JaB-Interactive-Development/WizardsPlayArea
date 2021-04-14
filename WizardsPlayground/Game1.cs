@@ -50,6 +50,7 @@ namespace WizardsPlayground
                     position = new Vector2(100,100),
                     Origin = new Vector2(gWizard.Width/2,gWizard.Height/2),
                     firebolt = new firebolt(Content.Load<Texture2D>( "firebolt_1"),Content.Load<Texture2D>("firebolt_2")),
+                    arcbolt = new arcbolt(Content.Load<Texture2D>("arcbolt_1"),Content.Load<Texture2D>("arcbolt_3")),
                 }
             };
             // TODO: use this.Content to load your game content here
@@ -78,7 +79,7 @@ namespace WizardsPlayground
 
             _spriteBatch.Begin();
             foreach (var sprite in _sprites)
-                sprite.Draw(_spriteBatch);
+                 sprite.Draw(_spriteBatch);
             _spriteBatch.End();
 
             base.Draw(gameTime);

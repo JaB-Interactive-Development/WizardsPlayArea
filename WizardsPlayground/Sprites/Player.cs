@@ -13,6 +13,7 @@ namespace WizardsPlayground.Sprites
     {
         public bool HasDied = false;
         public firebolt firebolt;
+        public arcbolt arcbolt;
 
         public Player(Texture2D texture) : base(texture)
         {
@@ -26,12 +27,29 @@ namespace WizardsPlayground.Sprites
             _currentMouse = Mouse.GetState();
             Move();
             Rotate();
-            Attack(sprites);
+            RightClick(sprites);
+            LeftClick(sprites);
         }
 
-        private void Attack(List<Sprite> sprites)
+        private void LeftClick(List<Sprite> sprites)
         {
-            if(_currentMouse.LeftButton != _previousMouse.LeftButton)
+            if(_currentMouse.RightButton != _previousMouse.RightButton && _currentMouse.RightButton == ButtonState.Pressed)
+            {
+                var Arcbolt = arcbolt.Clone() as arcbolt;
+                Arcbolt.Direction = Vector2.Normalize(this.Direction);
+                Arcbolt.position = this.position;
+                Arcbolt.Rotation = this.Rotation;
+                Arcbolt.LinearVelocity = this.LinearVelocity * 1.25f;
+                Arcbolt.LifeSpan = 2f;
+                Arcbolt.Parent = this;
+
+                sprites.Add(Arcbolt);
+            }
+        }
+
+        private void RightClick(List<Sprite> sprites)
+        {
+            if(_currentMouse.LeftButton != _previousMouse.LeftButton && _currentMouse.LeftButton == ButtonState.Pressed)
             {
                 var Firebolt = firebolt.Clone() as firebolt;
                 Firebolt.Direction = Vector2.Normalize(this.Direction);

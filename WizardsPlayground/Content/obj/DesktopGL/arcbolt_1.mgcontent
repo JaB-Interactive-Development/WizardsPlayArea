@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/adamb/source/repos/WizardsPlayground/WizardsPlayground/Content/GreenWizard.png</SourceFile>
-  <SourceTime>2021-04-10T11:28:59.3071168-07:00</SourceTime>
-  <DestFile>C:/Users/adamb/source/repos/WizardsPlayground/WizardsPlayground/Content/bin/DesktopGL/GreenWizard.xnb</DestFile>
-  <DestTime>2021-04-13T18:26:47.4893419-07:00</DestTime>
+  <SourceFile>C:/Users/adamb/source/repos/WizardsPlayground/WizardsPlayground/Content/arcbolt_1.png</SourceFile>
+  <SourceTime>2021-04-13T18:20:52.6893142-07:00</SourceTime>
+  <DestFile>C:/Users/adamb/source/repos/WizardsPlayground/WizardsPlayground/Content/bin/DesktopGL/arcbolt_1.xnb</DestFile>
+  <DestTime>2021-04-13T18:26:47.4394744-07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
